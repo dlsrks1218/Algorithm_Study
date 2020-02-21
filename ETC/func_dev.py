@@ -23,27 +23,10 @@ def solution(progresses, speeds):
             else:
                 days_left[i+1] = days_left[i]
                 cnt+=1
+        else:
             ans.append(cnt)
     
     print(ans)
     return ans
-# def solution(progresses, speeds):
-#     ans = []
-#     stk = []
-#     for idx, p in enumerate(progresses):
-#         cnt = 0
-#         while p<100:
-#             p+=speeds[idx]
-#             cnt+=1
-#         stk.append(cnt) 
-    
-#     tmp = list(sorted(stk))
-#     for idx, t in enumerate(tmp):
-#         if t == stk[0]:
-#             ans.append(len(tmp[:idx+1]))
-#         if t > stk[0]:
-#             ans.append(1)
-#     print(ans)
-#     return ans
 
 solution(progresses, speeds)
