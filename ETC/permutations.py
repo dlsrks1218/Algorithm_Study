@@ -8,7 +8,8 @@ def solution(n, r):
         alpha.append(chr(ord('a')+i))
     
     print(alpha)
-    print(list(permutations(alpha, 2)))
-    return list(permutations(alpha, 2))
+    ans = list(permutations(alpha, 2))
+    print(ans)
+    return ans
 
 solution(4, 2)
