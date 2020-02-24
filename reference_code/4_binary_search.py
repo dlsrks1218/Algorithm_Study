@@ -15,3 +15,29 @@
 # 3 4 5 6 7 8 9
 # 1 2 3
 
+def binary_search(sarr, low, high, target):
+    mid = 0
+    if low > high:
+        print(' -1', end='')
+        return
+    mid = int((low + high) / 2)
+    if target < sarr[mid]:
+        binary_search(sarr, low, mid - 1, target)
+    elif sarr[mid] < target:
+        binary_search(sarr, mid + 1, high, target)
+    else:
+        print(' %d' %(mid), end='')
+        return
+
+T = int(input())
+
+for i in range(T):
+    M = int(input())
+    N = int(input())
+    sorted_arr = list(map(int, input().split()))
+    target_arr = list(map(int, input().split()))
+    
+    print('#%d' %(i+1), end='')
+    
+    for i in range(N):
+        binary_search(sorted_arr, 0, M-1, target_arr[i])
