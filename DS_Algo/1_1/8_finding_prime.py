@@ -1,6 +1,7 @@
 import math
 import random
 
+
 def finding_prime(number):
     num = abs(number)
     if num < 4:
@@ -10,6 +11,7 @@ def finding_prime(number):
             return False
     return True
 
+
 def finding_prime_sqrt(number):
     num = abs(number)
     if num < 4:
@@ -18,6 +20,7 @@ def finding_prime_sqrt(number):
         if number % x == 0:
             return False
     return True
+
 
 def test():
     num1 = 17
