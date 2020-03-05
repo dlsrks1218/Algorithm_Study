@@ -2,4 +2,5 @@
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
     "editor.fontSize": 15,
+    "editor.fontFamily": "D2Coding"
 }
