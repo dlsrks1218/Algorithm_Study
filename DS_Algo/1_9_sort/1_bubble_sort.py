@@ -1,6 +1,7 @@
 def bubble_sort(inp):
     answer = []
     for num in range(len(inp)-1, 0, -1):
+        print(inp[num], inp)
         for i in range(num):
             if inp[i] > inp[i+1]:
                 inp[i], inp[i+1] = inp[i+1], inp[i]
