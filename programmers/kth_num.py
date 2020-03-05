@@ -15,7 +15,7 @@ def partition(inp, start, end):
         else:
             inp[left], inp[right] = inp[right], inp[left]
     inp[start], inp[right] = inp[right], inp[start]
-    print(right, inp)
+    # print(right, inp)
     
     return right
 
@@ -32,8 +32,18 @@ def quick_sort(inp, start, end):
     return ans
 
 
-# def test_quick_sort():
-#     inp = [1,7,4,5,3,2,6]
-#     ans = [1,2,3,4,5,6,7]
-#     assert(quick_sort(inp,0, len(inp)-1) == ans)
-#     print('테스트 통과!')
+def solution(arr, coms):
+    # i, j, k = coms[0][0], coms[0][1], coms[0][2]
+    # print(arr[i-1:j])
+    answer = []
+    for i,j,k in coms:
+        tmp_arr = arr[i-1:j]
+        # print(quick_sort(tmp_arr, 0, len(tmp_arr)-1), quick_sort(tmp_arr, 0, len(tmp_arr)-1)[k-1])
+        answer.append(quick_sort(tmp_arr, 0, len(tmp_arr)-1)[k-1])
+
+    # print(answer)
+    return answer
+
+
+if __name__ == '__main__':
+    solution([1,5,2,6,3,7,4], [[2,5,3], [4,4,1], [1,7,3]])

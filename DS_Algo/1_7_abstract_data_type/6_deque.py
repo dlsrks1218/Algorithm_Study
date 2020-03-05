@@ -18,6 +18,9 @@ print(q)
 # q.append('demon')
 # print(q)
 
+q.rotate(1)
+print(q)
+
 q.rotate(3)
 print(q)
 
