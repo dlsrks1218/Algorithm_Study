@@ -1,6 +1,4 @@
-from collections import Counter
 from collections import OrderedDict
-
 
 def solution(genres, plays):
     ans = []
@@ -8,33 +6,52 @@ def solution(genres, plays):
 
     for i, gp in enumerate(zip(genres, plays)):
         gp_dic[i] = gp
+    # print(gp_dic)
 
-    print(gp_dic)
+    s = set(genres)
+    d = dict()
+    for item in s:
+        d[item] = 0
 
-    res = sorted(gp_dic.items(), key = lambda item: item[1][0])
-    print(res)
-    # res = sorted(gp_dic.items(), key = lambda item: item[1][1])
+    for key, val in gp_dic.items():
+        # print(val)
+        if val[0] in s:
+            d[val[0]] += val[1]
+
+    d = sorted(d.items(), key=lambda x: x[1], reverse=True)
+    # print('\n', d)
+
+    s1 = map(lambda x: x[0], d)
+    dic_lst = [{} for i in range(len(d))]
+    # print(dic_lst)
+    
+    dic_dic = OrderedDict()
+    for key in s1:
+        dic_dic[key] = {}
+    # print(dic_dic)
+
+    for item in gp_dic.items():
+        # print(item, type(item))
+        if item[1][0] in s:
+            dic_dic[item[1][0]][item[0]] = item[1]
+    # print(dic_dic)
+
+    res = []
+
+    for key, val in dic_dic.items():
+        # print(key, val, type(val))
+        val = sorted(val.items(), key=lambda x: x[1][1], reverse=True)
+        # print(dict(val))
+        res.append(dict(val))
+
     # print(res)
 
-    g = set(genres)
-    print(g)
-    g_l = {}
     for item in res:
-        # print(list(item)[1][0], list(item)[1][1])
-        if list(item)[1][0] in g:
-            g_l[list(item)[1][0]] += list(item)[1][1]
-    print(g_l)
-
-
-    
-
-    # # 장르별로 소팅
-    # res = sorted(gp_dic.items(), key = list(gp_dic.values())[0])
-    # # 재생 횟수 별로 소팅
-    # res = sorted(gp_dic.items(), key = list(gp_dic.values())[1])
-    # print(res)
-    
-    
+        cnt = 1
+        for key in item.keys():
+            if cnt <= 2:
+                ans.append(key)
+            cnt+=1
     # print(ans)
 
 
