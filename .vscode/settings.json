@@ -3,5 +3,6 @@
     // "python.linting.enabled": true,
     "editor.fontSize": 15,
     "editor.fontFamily": "D2Coding",
-    "editor.tabCompletion": "on"
+    "editor.tabCompletion": "on",
+    "python.pythonPath": "/usr/bin/python3"
 }
