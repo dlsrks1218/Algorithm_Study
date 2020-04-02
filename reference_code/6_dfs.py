@@ -1,8 +1,8 @@
 def bfs(graph, start_node):
     visit = []
-    queue = []
-
-    queue.append(start_node)
+    # queue = []
+    # queue.append(start_node)
+    queue = [start_node]
 
     while queue:
         node = queue.pop(0)
@@ -14,9 +14,9 @@ def bfs(graph, start_node):
 
 def dfs(graph, start_node):
     visit = []
-    stack = []
-
-    stack.append(start_node)
+    # stack = []
+    # stack.append(start_node)
+    stack = [start_node]
 
     while stack:
         node = stack.pop()
