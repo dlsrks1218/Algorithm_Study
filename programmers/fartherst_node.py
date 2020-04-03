@@ -1,29 +1,26 @@
-from collections import defaultdict
+from collections import defaultdict, deque
 
 def solution(inp1, inp2):
     def DFS(graph, start_node):
-        visited = []
-        # stack = []
-        # stack.append(start_node)
+        visited = {}
         stack = [start_node]
         while stack:
-            print(stack)
             node = stack.pop()
             if node not in visited:
-                visited.append(node)
+                visited[node] = True
                 stack.extend(graph[node])
-        return visited
+        return list(visited.keys())
 
     def BFS(graph, start_node):
-        visited = []
-        queue = [start_node]
-        while queue:
-            node = queue.pop(0)
+        visited = {}
+        q = deque()
+        q.append(start_node)
+        while q:
+            node = q.popleft()
             if node not in visited:
-                visited.append(node)
-                queue.extend(graph[node])
-            print(queue)
-        return visited
+                visited[node] = True
+                q.extend(graph[node])
+        return list(visited.keys())
     
     ans = 0
 
@@ -35,7 +32,7 @@ def solution(inp1, inp2):
 
     print(g)
     print(DFS(g, 1))
-    # print(BFS(g, 1))
+    print(BFS(g, 1))
 
     return ans
 
