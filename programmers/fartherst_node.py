@@ -12,15 +12,17 @@ def solution(inp1, inp2):
         return list(visited.keys())
 
     def BFS(graph, start_node):
-        visited = {}
         q = deque()
-        q.append(start_node)
+        q.append((start_node, 0))
+        visited = {}
+        numbers = defaultdict(lambda:0)
         while q:
-            node = q.popleft()
+            node, cnt = q.popleft()
             if node not in visited:
                 visited[node] = True
-                q.extend(graph[node])
-        return list(visited.keys())
+                numbers[cnt+1] += 1
+                q.extend((graph[node], cnt+1))
+        return numbers[cnt]
     
     ans = 0
 

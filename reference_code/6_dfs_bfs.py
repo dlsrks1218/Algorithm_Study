@@ -10,6 +10,7 @@ def DFS(graph, start_node):
                 stack.extend(graph[node])
         return list(visited.keys())
 
+
 def BFS(graph, start_node):
     visited = {}
     q = deque()
