@@ -23,7 +23,7 @@ def multi(start_time, num_list):
 if __name__ == '__main__':
     start_time = time.time()
     num_list = ['p1', 'p2', 'p3', 'p4']
-
+    
     single_result = single(start_time, num_list)
     multi_result = multi(start_time, num_list)
 
