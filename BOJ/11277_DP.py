@@ -10,6 +10,7 @@ def dp(x):
         memo[x] = (dp(x-1) + 2 * dp(x-2)) % 10007
     return memo[x]
 
+
 if __name__ == '__main__':
     x = int(input())
     print(dp(x))
