@@ -1,42 +1,26 @@
 def solution(board, moves):
     ans = 0
-
     bucket = []
+    moves = [m-1 for m in moves]
 
-    for line in board:
-        print(line)
-
-    # for j in range(len(board[0])):
-    #     for i in range(len(board[0])):
-    #         print(board[i][j], end=' ')
+    # for i in range(len(board)):
+    #     print('moves : ', i , end=' -> ')
+    #     for j in range(len(board)):
+    #         print(board[j][i], end=' ')
     #     print()
 
-    for i in range(len(board[0])):
-        for j in range(len(board[0])):
-            print(board[j][i], end=' ')
-        print()
-
-    moves = [m-1 for m in moves]
-    print(moves)
-
     for m in moves:
-        for i in range(len(board[0]) - 1):
-            if bucket[0] == board[i+1][m]:
-                bucket.pop()
-                ans += 1
-            if board[i][m] != 0:
-                bucket.append(board[i][m])
+        for i in range(len(board)):
+            tmp = board[i][m]
+            if tmp != 0:
+                if len(bucket) > 0 and bucket[-1] == tmp:
+                    ans += 2
+                    bucket.pop()
+                else:
+                    bucket.append(tmp)
                 board[i][m] = 0
-        print()
+                break
 
-    # for m in moves:
-    #     for i in range(len(board[0]) - 1):
-    #         if bucket[0] == board[i][m]:
-    #             bucket.pop()
-    #             ans += 1
-    #         if i != 0:
-    #             bucket.push(board[i][m])
-    #             board[i][m] = 0
     return ans
 
 
