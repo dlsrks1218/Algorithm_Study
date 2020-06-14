@@ -62,6 +62,17 @@ def qs3(lst, low, high):
     
     return lst
 
+def qs4(arr):
+    if len(arr) < 2:
+        return arr
+    pivot = arr[0]
+    less = [num for num in arr[1:] if num <= pivot]
+    greater = [num for num in arr[1:] if num > pivot]
+    print(less, greater)
+
+    return qs4(less) + [pivot] + qs4(greater)
+
+
 lst = [5,4,8,6,1,3,2,7]
 
 # start1 = time.time()
@@ -71,4 +82,6 @@ lst = [5,4,8,6,1,3,2,7]
 # qs2(lst)
 # print(lst, time.time() - start2)
 
-print(qs3(lst, 0, len(lst)-1))
+# print(qs3(lst, 0, len(lst)-1))
+
+print(qs4(lst))
