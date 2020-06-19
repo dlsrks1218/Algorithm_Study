@@ -73,6 +73,7 @@ def calculate(postfix):
             # float 타입 처리
             if '.' in token:
                 operand.append(float(token))    
+            # int 타입 처리
             else:
                 operand.append(int(token))
         else:
@@ -83,11 +84,13 @@ def calculate(postfix):
     
     return operand.pop()
 
-# string = '11+2*(3-4)'
-# string = '11+2*3-4'
 # string = '2+3*4'
 # string = '2+5*(3+4)'
+# string = '11+2*3-4'
+# string = '11+2*(3-4)'
 string = '11.5+2*(3-4)'
+
+
 
 print(string, '계산 결과 :', eval(string))
 
