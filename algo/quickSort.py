@@ -68,7 +68,7 @@ def qs4(arr):
     pivot = arr[0]
     less = [num for num in arr[1:] if num <= pivot]
     greater = [num for num in arr[1:] if num > pivot]
-    print(less, greater)
+    # print(less, greater)
 
     return qs4(less) + [pivot] + qs4(greater)
 

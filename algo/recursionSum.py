@@ -1,6 +1,6 @@
 def recur_sum(arr, result):
     # 종료 조건
-    if not len(arr):
+    if not arr:
         return result
     last = arr.pop()
     result += last    
