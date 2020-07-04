@@ -15,20 +15,33 @@
 
 
 def bs(arr, targetNum):
+    """타겟 숫자의 인덱스 찾기
+
+    Args:
+        arr (int): [description]
+        targetNum (int): [description]
+
+    Returns:
+        idx: [description]
+    """
+    
     start, end = 0, len(arr) - 1
-    midIndex = len(arr) // 2
-    indexValue = arr[midIndex]
-    # 종료 조건
-    if indexValue == targetNum:
-        return midIndex
-    elif indexValue < targetNum:
-        start = midIndex + 1
-    elif indexValue > targetNum:
-        end = midIndex - 1
-	# print('arr[', midIndex, '] =', indexValue)
-    print(indexValue)
-    # return -1
+    while start <= end:
+        midIndex = (start + end) // 2
+        if arr[midIndex] == targetNum:
+            return midIndex
+        elif arr[midIndex] < targetNum:
+            start = midIndex + 1
+        elif arr[midIndex] > targetNum:
+            end = midIndex - 1
+	# print('arr[', midIndex, '] =', arr[midIndex])
+    # print(arr[midIndex])
+        # print(start, end)
+    return -1
 
 
-arr = [1, 2, 3, 4, 5, 6, 7]
-bs(arr, 6)
+arr = [1, 2, 3, 5, 6, 7, 8, 9, 10, 11]
+target = 8
+target_idx = bs(arr, target)
+print('target num :', target)
+print('target_index :', target_idx)
